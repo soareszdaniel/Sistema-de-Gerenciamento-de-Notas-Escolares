@@ -5,7 +5,8 @@ public class Main {
         ConsultaSQL consulta = new ConsultaSQL();
         consulta.estabeleregarConexao();
 
-        consulta.adicionarAluno("Alfedro", 30, 1250);
+        //consulta.adicionarAluno("Alfedro", 30, 1250);
+        //consulta.adicionarAluno("Bardo", 31, 150);
         consulta.consultarNome();
 
 
