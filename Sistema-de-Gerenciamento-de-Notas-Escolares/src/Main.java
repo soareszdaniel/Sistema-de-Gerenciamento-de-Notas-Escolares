@@ -2,13 +2,9 @@ import java.sql.Statement;
 
 public class Main {
     public static void main(String[] args) {
-        ConsultaSQL consulta = new ConsultaSQL();
-        consulta.estabeleregarConexao();
-
-        //consulta.adicionarAluno("Alfedro", 30, 1250);
-        //consulta.adicionarAluno("Bardo", 31, 150);
-        consulta.consultarNome();
-
+        Alunos.estabelecerConexao();
+        Alunos a1 = new Alunos("Tito", 5, 320);
+        a1.listarAlunos();
 
     }
 }
