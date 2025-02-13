@@ -1,31 +1,46 @@
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-
-public class Notas extends ConsultaSQL {
+public class Notas {
     private Alunos aluno;
     private Disciplinas disciplina;
+    private double nota;
 
+    // Construtor
+    public Notas(Alunos aluno, Disciplinas disciplina, double nota) {
+        this.aluno = aluno;
+        this.disciplina = disciplina;
+        this.nota = nota;
+    }
 
-    public static void consultarNotas(Alunos aluno){
-        try {
-            if (conexao == null) {
-                estabelecerConexao();
-            } else {
-                PreparedStatement stmt = conexao.prepareStatement("select Alunos.nome, disciplinas.nome, nota from alunos " +
-                        "join notas on alunos.matricula = notas.matricula " +
-                        "join disciplinas on disciplinas.codigo = notas.codigo " +
-                        "where Alunos.nome = ?");
-                stmt.setString(1, aluno.getNome());
+    // Getters e Setters
+    public Alunos getAluno() {
+        return aluno;
+    }
 
-                //while (rs.next()) {
-                    //System.out.println(rs.getString("alunos.nome"));
-                  //  System.out.println(rs.getString("disciplinas.nome"));
-                //    System.out.println(rs.getInt("nota"));
-                //}
-            }
-        } catch(Exception e){
-            throw new RuntimeException(e);
-        }
+    public void setAluno(Alunos aluno) {
+        this.aluno = aluno;
+    }
+
+    public Disciplinas getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplinas disciplina) {
+        this.disciplina = disciplina;
+    }
+
+    public double getNota() {
+        return nota;
+    }
+
+    public void setNota(double nota) {
+        this.nota = nota;
+    }
+
+    @Override
+    public String toString() {
+        return "Nota{" +
+                "aluno=" + aluno.getNome() +
+                ", disciplina=" + disciplina.getNome() +
+                ", nota=" + nota +
+                '}';
     }
 }
