@@ -17,6 +17,11 @@ public class WebServer {
             exchange.sendResponseHeaders(200, bytes.length);
             exchange.getResponseBody().write(bytes);
             exchange.close();
+            String response = "Aluno cadastrado com sucesso!";
+            exchange.getResponseHeaders().add("Content-Type", "text/plain");
+            exchange.sendResponseHeaders(200, response.getBytes().length);
+            exchange.getResponseBody().write(response.getBytes());
+            exchange.close();
         });
 
         server.createContext("/cadastro.html", exchange -> {

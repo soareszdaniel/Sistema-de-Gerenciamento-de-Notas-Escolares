@@ -5,7 +5,7 @@ document.getElementById('formCadastro').addEventListener('submit', function(e) {
     const matricula = document.getElementById('matricula').value;
     const turma = document.getElementById('turma').value;
 
-    fetch('http://localhost:8080/api/alunos', {
+    fetch('http://localhost:8081/api/alunos', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
